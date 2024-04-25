@@ -1,4 +1,5 @@
 function fish_prompt
+    printf "HELLOOO"
     switch "$fish_key_bindings"
         case fish_hybrid_key_bindings fish_vi_key_bindings
             set STARSHIP_KEYMAP "$fish_bind_mode"

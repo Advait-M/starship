@@ -25,11 +25,10 @@ struct StarshipPath {
 }
 impl StarshipPath {
     fn init() -> io::Result<Self> {
-        let exe_name = option_env!("CARGO_PKG_NAME").unwrap_or("starship");
+        // Hardcoded path to the Starship executable
+        let hardcoded_path = PathBuf::from("/Users/advait/code/starship/target/debug/starship");
 
-        let native_path = which(exe_name).or_else(|_| env::current_exe())?;
-
-        Ok(Self { native_path })
+        Ok(Self { native_path: hardcoded_path })
     }
     fn str_path(&self) -> io::Result<&str> {
         let current_exe = self
